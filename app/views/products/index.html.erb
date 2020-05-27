@@ -1,0 +1,15 @@
+<%= form_tag("/products/add", method: "post") do %>
+  <%= label_tag(:product, "Product name:") %>
+  <%= text_field_tag(:product) %>
+  <%= submit_tag("add to cart") %>
+<% end %>
+
+<% if session[:cart] %>
+  <ol>
+    <%= session[:cart].each do |item| %>
+      <li><%= item %></li>
+    <% end %>
+  </ol>
+<% else %>
+  <h1>Cart empty</h1>
+<% end %>
